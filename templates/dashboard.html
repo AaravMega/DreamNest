@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Dashboard – DreamNest{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Welcome, {{ session.get('full_name') }}</h1>
+    <p>Here's an overview of your dream home planning journey.</p>
+</section>
+
+<section class="dashboard-grid">
+    <a href="{{ url_for('plan_home') }}" class="dash-card">
+        <div class="feature-icon">🏡</div>
+        <h3>Plan Dream Home</h3>
+        <p>Create a new dream home plan.</p>
+    </a>
+    <a href="{{ url_for('budget_planning') }}" class="dash-card">
+        <div class="feature-icon">💰</div>
+        <h3>Budget Planning</h3>
+        <p>Estimate your construction budget.</p>
+    </a>
+    <a href="{{ url_for('loan_planning') }}" class="dash-card">
+        <div class="feature-icon">🏦</div>
+        <h3>Loan Planning</h3>
+        <p>Calculate your home loan EMI.</p>
+    </a>
+    <a href="{{ url_for('profile') }}" class="dash-card">
+        <div class="feature-icon">👤</div>
+        <h3>My Profile</h3>
+        <p>View and manage your account details.</p>
+    </a>
+</section>
+
+<section class="plans-section">
+    <h2 class="section-title" style="text-align:left;">Your Saved Plans</h2>
+    {% if plans %}
+    <div class="plans-table-wrap">
+        <table class="plans-table">
+            <thead>
+                <tr>
+                    <th>House Type</th>
+                    <th>Plot Size</th>
+                    <th>Bedrooms</th>
+                    <th>Budget Range</th>
+                    <th>Style</th>
+                    <th>Location</th>
+                    <th>Created</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for plan in plans %}
+                <tr>
+                    <td>{{ plan.house_type }}</td>
+                    <td>{{ plan.plot_size }}</td>
+                    <td>{{ plan.bedrooms }}</td>
+                    <td>{{ plan.budget_range }}</td>
+                    <td>{{ plan.style }}</td>
+                    <td>{{ plan.location }}</td>
+                    <td>{{ plan.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <p>You haven't created any dream home plans yet.</p>
+        <a href="{{ url_for('plan_home') }}" class="btn btn-primary">Create Your First Plan</a>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

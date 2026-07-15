@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}My Profile – DreamNest{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>My Profile</h1>
+    <p>Your account information.</p>
+</section>
+
+<section class="profile-section">
+    <div class="profile-card">
+        <div class="profile-avatar">{{ user.full_name[0] | upper }}</div>
+        <h2>{{ user.full_name }}</h2>
+        <div class="profile-detail"><strong>Email:</strong> {{ user.email }}</div>
+        <div class="profile-detail"><strong>Phone:</strong> {{ user.phone or "Not provided" }}</div>
+        <div class="profile-detail"><strong>Member Since:</strong> {{ user.created_at }}</div>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-outline">Back to Dashboard</a>
+    </div>
+</section>
+{% endblock %}

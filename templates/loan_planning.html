@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Loan Planning – DreamNest{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Home Loan Planning</h1>
+    <p>Calculate your estimated monthly payment (EMI) for a home loan.</p>
+</section>
+
+<section class="contact-section">
+    <form method="POST" class="form-card">
+        <div class="form-group">
+            <label for="loan_amount">Loan Amount ($)</label>
+            <input type="number" step="0.01" id="loan_amount" name="loan_amount" required>
+        </div>
+        <div class="form-group">
+            <label for="annual_rate">Annual Interest Rate (%)</label>
+            <input type="number" step="0.01" id="annual_rate" name="annual_rate" required>
+        </div>
+        <div class="form-group">
+            <label for="tenure_years">Loan Tenure (years)</label>
+            <input type="number" step="0.5" id="tenure_years" name="tenure_years" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Calculate EMI</button>
+    </form>
+
+    {% if result %}
+    <div class="result-card">
+        <h3>Loan Estimate</h3>
+        <p class="result-amount">${{ "{:,.2f}".format(result.emi) }} / month</p>
+        <div class="result-details">
+            <span>Total Payment: <strong>${{ "{:,.2f}".format(result.total_payment) }}</strong></span>
+            <span>Total Interest: <strong>${{ "{:,.2f}".format(result.total_interest) }}</strong></span>
+        </div>
+        <p class="result-note">This is an approximate estimate for planning purposes only.</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

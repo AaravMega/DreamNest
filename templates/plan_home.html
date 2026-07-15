@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}Plan Your Dream Home – DreamNest{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Plan Your Dream Home</h1>
+    <p>Tell us your preferences and we'll help you organize your dream home plan.</p>
+</section>
+
+<section class="contact-section">
+    <form method="POST" class="form-card">
+        <div class="form-group">
+            <label for="house_type">House Type</label>
+            <select id="house_type" name="house_type" required>
+                <option value="">Select a type</option>
+                <option>Villa</option>
+                <option>Bungalow</option>
+                <option>Duplex</option>
+                <option>Cottage</option>
+                <option>Farmhouse</option>
+                <option>Apartment</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="plot_size">Plot Size (sq. ft.)</label>
+            <input type="text" id="plot_size" name="plot_size" placeholder="e.g. 1800">
+        </div>
+        <div class="form-group">
+            <label for="bedrooms">Number of Bedrooms</label>
+            <input type="number" id="bedrooms" name="bedrooms" min="1" max="10">
+        </div>
+        <div class="form-group">
+            <label for="budget_range">Budget Range</label>
+            <select id="budget_range" name="budget_range">
+                <option value="">Select a range</option>
+                <option>Under $50,000</option>
+                <option>$50,000 - $100,000</option>
+                <option>$100,000 - $250,000</option>
+                <option>$250,000+</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="style">Preferred Style</label>
+            <input type="text" id="style" name="style" placeholder="e.g. Modern, Traditional, Minimalist">
+        </div>
+        <div class="form-group">
+            <label for="location">Preferred Location</label>
+            <input type="text" id="location" name="location">
+        </div>
+        <div class="form-group">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Save My Plan</button>
+    </form>
+</section>
+{% endblock %}

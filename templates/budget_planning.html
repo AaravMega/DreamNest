@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Budget Planning – DreamNest{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Budget Planning</h1>
+    <p>Estimate your construction cost based on area and rate per square foot.</p>
+</section>
+
+<section class="contact-section">
+    <form method="POST" class="form-card">
+        <div class="form-group">
+            <label for="area">Total Area (sq. ft.)</label>
+            <input type="number" step="0.01" id="area" name="area" required>
+        </div>
+        <div class="form-group">
+            <label for="cost_per_sqft">Estimated Cost per Sq. Ft.</label>
+            <input type="number" step="0.01" id="cost_per_sqft" name="cost_per_sqft" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Calculate Estimate</button>
+    </form>
+
+    {% if estimate is not none %}
+    <div class="result-card">
+        <h3>Estimated Construction Budget</h3>
+        <p class="result-amount">${{ "{:,.2f}".format(estimate) }}</p>
+        <p class="result-note">This is an approximate estimate. Actual costs may vary based on materials, labor, and location.</p>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

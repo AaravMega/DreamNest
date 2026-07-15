@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Gallery – DreamNest{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>House &amp; Villa Gallery</h1>
+    <p>Browse a variety of home styles to inspire your dream home plan.</p>
+</section>
+
+<section class="section-gallery-preview">
+    <div class="gallery-grid">
+        {% for item in gallery_items %}
+        <div class="gallery-card">
+            <div class="gallery-thumb">
+                <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="140" fill="#eaf2fb"/>
+                    <polygon points="100,25 170,70 30,70" fill="#1a5fb4"/>
+                    <rect x="45" y="70" width="110" height="55" fill="#ffffff" stroke="#1a5fb4" stroke-width="2"/>
+                    <rect x="90" y="90" width="20" height="35" fill="#1a5fb4"/>
+                    <rect x="60" y="85" width="15" height="15" fill="#eaf2fb" stroke="#1a5fb4" stroke-width="1.5"/>
+                    <rect x="125" y="85" width="15" height="15" fill="#eaf2fb" stroke="#1a5fb4" stroke-width="1.5"/>
+                </svg>
+            </div>
+            <h4>{{ item.title }}</h4>
+            <span class="tag">{{ item.type }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Found a style you love?</h2>
+    <p>Sign up and start building your personal dream home plan today.</p>
+    <a href="{{ url_for('signup') }}" class="btn btn-primary">Start Planning</a>
+</section>
+{% endblock %}

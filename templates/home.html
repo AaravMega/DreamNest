@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}DreamNest – Building Dreams into Reality{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Building Dreams <span>into Reality</span></h1>
+        <p>DreamNest is your all-in-one platform to plan, organize, and begin the journey of building your dream home. Explore ideas, manage requirements, and access powerful planning tools — all in one place.</p>
+        <div class="hero-buttons">
+            <a href="{{ url_for('signup') }}" class="btn btn-primary">Start Planning</a>
+            <a href="{{ url_for('gallery') }}" class="btn btn-outline">Explore Gallery</a>
+        </div>
+    </div>
+    <div class="hero-graphic">
+        <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="200,40 340,140 340,280 60,280 60,140" fill="#e8f1fb" stroke="#1a5fb4" stroke-width="4"/>
+            <polygon points="200,40 340,140 60,140" fill="#1a5fb4"/>
+            <rect x="110" y="170" width="60" height="110" fill="#ffffff" stroke="#1a5fb4" stroke-width="3"/>
+            <rect x="230" y="170" width="50" height="50" fill="#ffffff" stroke="#1a5fb4" stroke-width="3"/>
+            <rect x="230" y="235" width="50" height="45" fill="#ffffff" stroke="#1a5fb4" stroke-width="3"/>
+            <rect x="130" y="200" width="20" height="30" fill="#1a5fb4"/>
+            <line x1="60" y1="140" x2="60" y2="280" stroke="#1a5fb4" stroke-width="4"/>
+            <line x1="340" y1="140" x2="340" y2="280" stroke="#1a5fb4" stroke-width="4"/>
+        </svg>
+    </div>
+</section>
+
+<section class="section-features">
+    <h2 class="section-title">Our Vision</h2>
+    <p class="section-sub">Our team's goal is to simplify the complete home planning process through one easy-to-use website.</p>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🏡</div>
+            <h3>Plan Your Dream Home</h3>
+            <p>Organize your vision for your future home in one guided space.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🖼️</div>
+            <h3>Explore Ideas</h3>
+            <p>Browse house and villa styles for inspiration before you build.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Estimate Your Budget</h3>
+            <p>Get a clear picture of your expected construction costs.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🏦</div>
+            <h3>Plan Your Home Loan</h3>
+            <p>Understand your financing options with simple loan tools.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🛠️</div>
+            <h3>Connect with Services</h3>
+            <p>Find the right professionals to bring your project to life.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">⏱️</div>
+            <h3>Save Time</h3>
+            <p>Everything you need, organized in a single dashboard.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-gallery-preview">
+    <h2 class="section-title">Explore Dream Homes</h2>
+    <p class="section-sub">A glimpse of the styles our gallery will feature.</p>
+    <div class="gallery-grid">
+        {% for item in gallery_items %}
+        <div class="gallery-card">
+            <div class="gallery-thumb">
+                <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="200" height="140" fill="#eaf2fb"/>
+                    <polygon points="100,25 170,70 30,70" fill="#1a5fb4"/>
+                    <rect x="45" y="70" width="110" height="55" fill="#ffffff" stroke="#1a5fb4" stroke-width="2"/>
+                    <rect x="90" y="90" width="20" height="35" fill="#1a5fb4"/>
+                </svg>
+            </div>
+            <h4>{{ item.title }}</h4>
+            <span class="tag">{{ item.type }}</span>
+            <p>{{ item.desc }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="center-btn">
+        <a href="{{ url_for('gallery') }}" class="btn btn-primary">View Full Gallery</a>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Ready to begin planning your dream home?</h2>
+    <p>Join DreamNest today and take the first step toward the home you've always imagined.</p>
+    <a href="{{ url_for('signup') }}" class="btn btn-primary">Get Started</a>
+</section>
+{% endblock %}

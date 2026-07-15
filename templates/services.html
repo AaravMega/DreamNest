@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Services – DreamNest{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Our Services</h1>
+    <p>Everything you need to plan your dream home, in one place.</p>
+</section>
+
+<section class="section-features">
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="feature-icon">🏡</div>
+            <h3>Dream Home Planning</h3>
+            <p>Organize your house type, size, bedrooms, and style preferences in one guided form.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🖼️</div>
+            <h3>House &amp; Villa Gallery</h3>
+            <p>Explore a curated gallery of home styles for design inspiration.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Budget Planning</h3>
+            <p>Estimate your total construction cost using area and cost-per-square-foot inputs.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🏦</div>
+            <h3>Home Loan Planning</h3>
+            <p>Calculate your monthly EMI, total payments, and interest with our loan calculator.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🧰</div>
+            <h3>Construction Services</h3>
+            <p>Access information about connecting with the right construction professionals.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Personal Dashboard</h3>
+            <p>View and manage all your saved dream home plans in one organized space.</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2>Ready to explore our services?</h2>
+    <p>Create your free account and start using DreamNest's planning tools today.</p>
+    <a href="{{ url_for('signup') }}" class="btn btn-primary">Sign Up Free</a>
+</section>
+{% endblock %}

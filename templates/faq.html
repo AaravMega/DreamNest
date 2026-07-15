@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}FAQ – DreamNest{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <h1>Frequently Asked Questions</h1>
+    <p>Answers to common questions about DreamNest.</p>
+</section>
+
+<section class="faq-section">
+    {% for item in faqs %}
+    <div class="faq-item">
+        <button class="faq-question" type="button">
+            {{ item.q }}
+            <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+            <p>{{ item.a }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
